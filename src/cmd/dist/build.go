@@ -428,7 +428,7 @@ func findgoversion() string {
 	// Cache version.
 	writefile(version, path, 0)
 
-	return version
+	return version + " @yingshaoxo"
 }
 
 // isGitRepo reports whether the working directory is inside a Git repository.
