@@ -3,7 +3,7 @@
 Go is an open source programming language that makes it easy to build simple,
 reliable, and efficient software.
 
-**yingshaoxo**: I have removed the `variable unused warning`, you can download it from the release page: https://github.com/yingshaoxo/go/releases/tag/v21
+**yingshaoxo**: I have removed the `variable unused warning`, you can download it from the release page: https://github.com/yingshaoxo/go/releases/tag/v1.21
 
 > After the download, extract it, then do this: `export PATH="$PATH:$HOME/Download/go/bin"`
 

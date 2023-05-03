@@ -34,6 +34,9 @@ func TestErrorCodeExamples(t *testing.T) {
 				if name == "UnusedLabel" {
 					continue
 				}
+				if name == "UnusedImport" {
+					continue
+				}
 
 				example := strings.TrimSpace(examples[i])
 				err := checkExample(t, example)

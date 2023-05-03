@@ -270,10 +270,27 @@ func testFiles(t *testing.T, filenames []string, colDelta uint, manual bool) {
 
 	// there should be no expected errors left
 	if len(errmap) > 0 {
-		t.Errorf("--- %s: unreported errors:", pkgName)
+		// yingshaoxo: remove unused warning
+		they_are_all_unused_error := true
 		for filename, filemap := range errmap {
 			for line, errList := range filemap {
 				for _, err := range errList {
+					if !strings.Contains(err.Msg, " and not used") {
+						they_are_all_unused_error = false
+						break
+					}
+				}
+			}
+		}
+		if they_are_all_unused_error == false {
+			t.Errorf("--- %s: unreported errors:", pkgName)
+		}
+		for filename, filemap := range errmap {
+			for line, errList := range filemap {
+				for _, err := range errList {
+					if strings.Contains(err.Msg, " and not used") {
+						continue
+					}
 					t.Errorf("%s:%d:%d: %s", filename, line, err.Pos.Col(), err.Msg)
 				}
 			}
