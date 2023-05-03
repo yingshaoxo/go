@@ -3,11 +3,11 @@
 Go is an open source programming language that makes it easy to build simple,
 reliable, and efficient software.
 
-**yingshaoxo**: I have removed the `variable unused warning`, you can download it from the release page:
+**yingshaoxo**: I have removed the `variable unused warning`, you can download it from the release page: https://github.com/yingshaoxo/go/releases/tag/v21
 
 > After the download, extract it, then do this: `export PATH="$PATH:$HOME/Download/go/bin"`
 
-> The current golang version is: `go version devel go1.21-39ca989b88 Tue May 2 09:22:56 2023 +0000 linux/amd64`
+> The current golang version is: `go version devel go1.21 Tue May 2 09:22:56 2023 +0000 linux/amd64`
 
 ![Gopher image](https://golang.org/doc/gopher/fiveyears.jpg)
 *Gopher image by [Renee French][rf], licensed under [Creative Commons 4.0 Attributions license][cc4-by].*
