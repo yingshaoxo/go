@@ -40,7 +40,8 @@ func (check *Checker) labels(body *ast.BlockStmt) {
 	for name, obj := range all.elems {
 		obj = resolve(name, obj)
 		if lbl := obj.(*Label); !lbl.used {
-			check.softErrorf(lbl, UnusedLabel, "label %s declared and not used", lbl.name)
+			// yingshaoxo: remove unused warning
+			// check.softErrorf(lbl, UnusedLabel, "label %s declared and not used", lbl.name)
 		}
 	}
 }

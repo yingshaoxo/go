@@ -258,23 +258,24 @@ func main() {
 	f("src2", src2)
 }
 
-func TestIssue22525(t *testing.T) {
-	const src = `package p; func f() { var a, b, c, d, e int }`
+// yingshaoxo: remove unused warning
+// func TestIssue22525(t *testing.T) {
+// 	const src = `package p; func f() { var a, b, c, d, e int }`
 
-	got := "\n"
-	conf := Config{Error: func(err error) { got += err.Error() + "\n" }}
-	typecheck(src, &conf, nil) // do not crash
-	want := `
-p:1:27: a declared and not used
-p:1:30: b declared and not used
-p:1:33: c declared and not used
-p:1:36: d declared and not used
-p:1:39: e declared and not used
-`
-	if got != want {
-		t.Errorf("got: %swant: %s", got, want)
-	}
-}
+// 	got := "\n"
+// 	conf := Config{Error: func(err error) { got += err.Error() + "\n" }}
+// 	typecheck(src, &conf, nil) // do not crash
+// 	want := `
+// p:1:27: a declared and not used
+// p:1:30: b declared and not used
+// p:1:33: c declared and not used
+// p:1:36: d declared and not used
+// p:1:39: e declared and not used
+// `
+// 	if got != want {
+// 		t.Errorf("got: %swant: %s", got, want)
+// 	}
+// }
 
 func TestIssue25627(t *testing.T) {
 	const prefix = `package p; import "unsafe"; type P *struct{}; type I interface{}; type T `

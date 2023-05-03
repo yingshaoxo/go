@@ -27,10 +27,18 @@ func TestErrorCodeExamples(t *testing.T) {
 			doc := spec.Doc.Text()
 			examples := strings.Split(doc, "Example:")
 			for i := 1; i < len(examples); i++ {
+				// yingshaoxo: remove unused warning
+				if name == "UnusedVar" {
+					continue
+				}
+				if name == "UnusedLabel" {
+					continue
+				}
+
 				example := strings.TrimSpace(examples[i])
 				err := checkExample(t, example)
 				if err == nil {
-					t.Fatalf("no error in example #%d", i)
+					t.Fatalf("no error in example #%d, name %v", i, name)
 				}
 				typerr, ok := err.(Error)
 				if !ok {

@@ -64,95 +64,105 @@ var (
 // Variables declared in function bodies must be 'used'.
 type T struct{}
 func (r T) _(a, b, c int) (u, v, w int) {
-	var x1 /* ERROR "declared and not used" */ int
-	var x2 /* ERROR "declared and not used" */ int
-	x1 = 1
-	(x2) = 2
+	// yingshaoxo: remove unused warning
+	// var x1 /* ERROR "declared and not used" */ int
+	// var x2 /* ERROR "declared and not used" */ int
+	// x1 = 1
+	// (x2) = 2
 
-	y1 /* ERROR "declared and not used" */ := 1
-	y2 /* ERROR "declared and not used" */ := 2
-	y1 = 1
-	(y1) = 2
+	// yingshaoxo: remove unused warning
+	// y1 /* ERROR "declared and not used" */ := 1
+	// y2 /* ERROR "declared and not used" */ := 2
+	// y1 = 1
+	// (y1) = missing return2
 
 	{
-		var x1 /* ERROR "declared and not used" */ int
-		var x2 /* ERROR "declared and not used" */ int
-		x1 = 1
-		(x2) = 2
+		// yingshaoxo: remove unused warning
+		// var x1 /* ERROR "declared and not used" */ int
+		// var x2 /* ERROR "declared and not used" */ int
+		// x1 = 1
+		// (x2) = 2
 
-		y1 /* ERROR "declared and not used" */ := 1
-		y2 /* ERROR "declared and not used" */ := 2
-		y1 = 1
-		(y1) = 2
+		// yingshaoxo: remove unused warning
+		// y1 /* ERROR "declared and not used" */ := 1
+		// y2 /* ERROR "declared and not used" */ := 2
+		// y1 = 1
+		// (y1) = 2
 	}
 
-	if x /* ERROR "declared and not used" */ := 0; a < b {}
+	// yingshaoxo: remove unused warning
+	// if x /* ERROR "declared and not used" */ := 0; a < b {}
 
-	switch x /* ERROR "declared and not used" */, y := 0, 1; a {
-	case 0:
-		_ = y
-	case 1:
-		x /* ERROR "declared and not used" */ := 0
-	}
+	// switch x /* ERROR "declared and not used" */, y := 0, 1; a {
+	// case 0:
+	// 	_ = y
+	// case 1:
+	// 	x /* ERROR "declared and not used" */ := 0
+	// }
 
-	var t interface{}
-	switch t /* ERROR "declared and not used" */ := t.(type) {}
+	// yingshaoxo: remove unused warning
+	// var t interface{}
+	// switch t /* ERROR "declared and not used" */ := t.(type) {}
 
-	switch t /* ERROR "declared and not used" */ := t.(type) {
-	case int:
-	}
+	// switch t /* ERROR "declared and not used" */ := t.(type) {
+	// case int:
+	// }
 
-	switch t /* ERROR "declared and not used" */ := t.(type) {
-	case int:
-	case float32, complex64:
-		t = nil
-	}
+	// switch t /* ERROR "declared and not used" */ := t.(type) {
+	// case int:
+	// case float32, complex64:
+	// 	t = nil
+	// }
 
-	switch t := t.(type) {
-	case int:
-	case float32, complex64:
-		_ = t
-	}
+	// switch t := t.(type) {
+	// case int:
+	// case float32, complex64:
+	// 	_ = t
+	// }
 
-	switch t := t.(type) {
-	case int:
-	case float32:
-	case string:
-		_ = func() string {
-			return t
-		}
-	}
+	// switch t := t.(type) {
+	// case int:
+	// case float32:
+	// case string:
+	// 	_ = func() string {
+	// 		return t
+	// 	}
+	// }
 
-	switch t := t; t /* ERROR "declared and not used" */ := t.(type) {}
+	// switch t := t; t /* ERROR "declared and not used" */ := t.(type) {}
 
-	var z1 /* ERROR "declared and not used" */ int
-	var z2 int
-	_ = func(a, b, c int) (u, v, w int) {
-		z1 = a
-		(z1) = b
-		a = z2
-		return
-	}
+	// yingshaoxo: remove unused warning
+	// var z1 /* ERROR "declared and not used" */ int
+	// var z2 int
+	// _ = func(a, b, c int) (u, v, w int) {
+	// 	z1 = a
+	// 	(z1) = b
+	// 	a = z2
+	// 	return
+	// }
 
-	var s []int
-	var i /* ERROR "declared and not used" */ , j int
-	for i, j = range s {
-		_ = j
-	}
+	// yingshaoxo: remove unused warning
+	// var s []int
+	// var i /* ERROR "declared and not used" */ , j int
+	// for i, j = range s {
+	// 	_ = j
+	// }
 
-	for i, j /* ERROR "declared and not used" */ := range s {
-		_ = func() int {
-			return i
-		}
-	}
+	// yingshaoxo: remove unused warning
+	// for i, j /* ERROR "declared and not used" */ := range s {
+	// 	_ = func() int {
+	// 		return i
+	// 	}
+	// }
 	return
 }
 
 // Unused variables in function literals must lead to only one error (issue #22524).
 func _() {
-	_ = func() {
-		var x /* ERROR "declared and not used" */ int
-	}
+	// yingshaoxo: remove unused warning
+	// _ = func() {
+	// 	var x /* ERROR "declared and not used" */ int
+	// }
 }
 
 // Invalid variable declarations must not lead to "declared and not used errors".

@@ -67,9 +67,12 @@ func (check *Checker) usage(scope *Scope) {
 	sort.Slice(unused, func(i, j int) bool {
 		return cmpPos(unused[i].pos, unused[j].pos) < 0
 	})
-	for _, v := range unused {
-		check.softErrorf(v, UnusedVar, "%s declared and not used", v.name)
-	}
+	// yingshaoxo: remove unused warning
+	/*
+		for _, v := range unused {
+			check.softErrorf(v, UnusedVar, "%s declared and not used", v.name)
+		}
+	*/
 
 	for _, scope := range scope.children {
 		// Don't go inside function literal scopes a second time;
@@ -743,16 +746,17 @@ func (check *Checker) stmt(ctxt stmtContext, s ast.Stmt) {
 
 		// If lhs exists, we must have at least one lhs variable that was used.
 		if lhs != nil {
-			var used bool
-			for _, v := range lhsVars {
-				if v.used {
-					used = true
-				}
-				v.used = true // avoid usage error when checking entire function
-			}
-			if !used {
-				check.softErrorf(lhs, UnusedVar, "%s declared and not used", lhs.Name)
-			}
+			// yingshaoxo: remove unused warning
+			// var used bool
+			// for _, v := range lhsVars {
+			// 	if v.used {
+			// 		used = true
+			// 	}
+			// 	v.used = true // avoid usage error when checking entire function
+			// }
+			// if !used {
+			// 	check.softErrorf(lhs, UnusedVar, "%s declared and not used", lhs.Name)
+			// }
 		}
 
 	case *ast.SelectStmt:

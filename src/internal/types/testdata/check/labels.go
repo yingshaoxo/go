@@ -9,20 +9,20 @@ package labels
 
 var x int
 
+// yingshaoxo: remove unused warning
 func f0() {
-L1 /* ERROR "label L1 declared and not used" */ :
+	// L1 /* ERROR "label L1 declared and not used" */ :
 	for {
 	}
-L2 /* ERROR "label L2 declared and not used" */ :
-	select {
-	}
-L3 /* ERROR "label L3 declared and not used" */ :
+	// L2 /* ERROR "label L2 declared and not used" */ :
+	select {}
+	// L3 /* ERROR "label L3 declared and not used" */ :
 	switch {
 	}
-L4 /* ERROR "label L4 declared and not used" */ :
+	// L4 /* ERROR "label L4 declared and not used" */ :
 	if true {
 	}
-L5 /* ERROR "label L5 declared and not used" */ :
+	// L5 /* ERROR "label L5 declared and not used" */ :
 	f0()
 L6:
 	f0()
@@ -38,12 +38,13 @@ L7:
 		break L8 /* ERROR "invalid break label L8" */
 	}
 
-// A label must be directly associated with a switch, select, or
-// for statement; it cannot be the label of a labeled statement.
+	// A label must be directly associated with a switch, select, or
+	// for statement; it cannot be the label of a labeled statement.
 
-L7a /* ERROR "declared and not used" */ : L7b:
+	// L7a /* ERROR "declared and not used" */ :
+L7b:
 	for {
-		break L7a /* ERROR "invalid break label L7a" */
+		break L7a    /* ERROR "invalid break label L7a" */
 		continue L7a /* ERROR "invalid continue label L7a" */
 		continue L7b
 	}
@@ -60,7 +61,7 @@ L9:
 	switch {
 	case true:
 		break L9
-	defalt /* ERROR "label defalt declared and not used" */ :
+		// defalt /* ERROR "label defalt declared and not used" */ :
 	}
 
 L10:
@@ -71,7 +72,8 @@ L10:
 	}
 
 	goto L10a
-L10a: L10b:
+L10a:
+L10b:
 	select {
 	default:
 		break L10a /* ERROR "invalid break label L10a" */
@@ -157,7 +159,7 @@ L5:
 // Additional tests not in the original files.
 
 func f2() {
-L1 /* ERROR "label L1 declared and not used" */ :
+	// L1 /* ERROR "label L1 declared and not used" */ :
 	if x == 0 {
 		for {
 			continue L1 /* ERROR "invalid continue label L1" */
@@ -193,7 +195,7 @@ _: // multiple blank labels are ok
 func f5() {
 _:
 	for {
-		break _ /* ERROR "invalid break label _" */
+		break _    /* ERROR "invalid break label _" */
 		continue _ /* ERROR "invalid continue label _" */
 	}
 }
