@@ -1,15 +1,21 @@
-# The Go Programming Language
+# The never_upgrade_go Programming Language
 
 Go is an open source programming language that makes it easy to build simple,
 reliable, and efficient software.
 
-**yingshaoxo**: I have removed the `variable unused warning`, you can download it from the release page: https://github.com/yingshaoxo/go/releases/tag/v1.21
+**yingshaoxo**: I have removed the `variable unused` and `import unused` warning
 
-> After the download, extract it, then do this: `export PATH="$PATH:$HOME/Download/go/bin"`
+<!-- you can download it from the release page: https://github.com/yingshaoxo/go/releases/tag/v1.21 -->
+
+<!-- > After the download, extract it, then do this: `export PATH="$PATH:$HOME/Download/go/bin"` -->
 
 > The current golang version is: `go version devel go1.21 Tue May 2 09:22:56 2023 +0000 linux/amd64`
 
-![Gopher image](https://golang.org/doc/gopher/fiveyears.jpg)
+> go1.17.13 works fine in ubuntu8, but later versions can't 
+
+> You have to build go1.4-bootstrap-20171003.tar.gz with musl-dev, then use go1.4 to build go1.17.13
+
+<!-- ![Gopher image](https://golang.org/doc/gopher/fiveyears.jpg)
 *Gopher image by [Renee French][rf], licensed under [Creative Commons 4.0 Attributions license][cc4-by].*
 
 Our canonical Git repository is located at https://go.googlesource.com/go.
@@ -45,4 +51,4 @@ proposals only. See https://go.dev/wiki/Questions for a list of
 places to ask questions about the Go language.
 
 [rf]: https://reneefrench.blogspot.com/
-[cc4-by]: https://creativecommons.org/licenses/by/4.0/
+[cc4-by]: https://creativecommons.org/licenses/by/4.0/ -->
