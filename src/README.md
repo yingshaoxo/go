@@ -1,5 +1,5 @@
 ## Prepare a base golang compiler
-Download a go release zip file, extract it, I assume it is `$HOME/CS/go2`
+Download a c_code 'go1.4-bootstrap-20171003.tar.gz' file, extract it, I assume it is `$HOME/CS/go2`
 
 In `~/.bashrc`:
 ```bash
