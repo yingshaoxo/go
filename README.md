@@ -15,6 +15,8 @@ reliable, and efficient software.
 
 > You have to build go1.4-bootstrap-20171003.tar.gz with musl-dev, then use go1.4 to build go1.17.13
 
+> Only go1.10 and before version supports windows xp.
+
 <!-- ![Gopher image](https://golang.org/doc/gopher/fiveyears.jpg)
 *Gopher image by [Renee French][rf], licensed under [Creative Commons 4.0 Attributions license][cc4-by].*
 
